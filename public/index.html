@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    body {
+      background-color: rgb(83, 83, 83);
+    }
+
+    .c-line {
+      position: relative;
+      z-index: 2;
+      width: 1px;
+      height: 100px;
+      display: block;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, #fff), color-stop(50%, rgba(255, 255, 255, 0)));
+      background: linear-gradient(to bottom, #fff 50%, rgba(255, 255, 255, 0) 50%);
+      background-position: 0 -100px;
+      background-size: 100% 200%;
+      -webkit-animation: scrolldown 2.2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
+      animation: scrolldown 2.2s cubic-bezier(0.76, 0, 0.3, 1) forwards infinite;
+    }
+
+    @keyframes scrolldown {
+      0% {
+        background-position: 0 -100px;
+      }
+      75% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 100px;
+      }
+    }
+  </style>
+
+  <h1>よくみるスクロール のアニメーション</h1>
+  <p>
+    background-sizeの高さを2倍にして,グラデーションで50％を白にする
+    background-positionをkeyframe animationで-100%から100%にして
+    cubic-bezierで慣性？ニョッキとする
+  </p>
+  
+  <div class="c-line"></div>
+</body>
+
+</html>
