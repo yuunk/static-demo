@@ -1,7 +1,3 @@
-const next = document.getElementById('slide_next');
-const current = document.getElementById('slide_current');
-const images = ['img1.jpg', 'img2.jpg', 'img3.jpg'];
-
 class OpacitySlider {
 
     constructor(next, current, images) {
@@ -34,7 +30,7 @@ class OpacitySlider {
                     this.current.style.opacity = opacity - this.counter * 0.01;
 
                     if (this.counter === 100) {
-                        this.resetOpacity();
+                        this.resetCounter();
                         clearInterval(opacityTransition);
                         resolve();
                     }
@@ -44,15 +40,16 @@ class OpacitySlider {
             });
 
             promise.then(() => {
-                console.log('ok');
 
                 return new Promise((resolve, reject) => {
+
                     setTimeout(() => {
                         this.changeBothImage();
                         this.updateIndex();
-                        this.current.style.opacity = 1;
+                        this.resetOpacity();
                         resolve();
                     }, 500);
+
                 });
 
             }).then(() => {
@@ -65,14 +62,19 @@ class OpacitySlider {
 
     }
 
-    resetOpacity() {
+    resetCounter() {
         this.counter = 1;
+    }
+
+    resetOpacity() {
+        this.current.style.opacity = 1;
     }
 
     changeBothImage() {
         current.style.backgroundImage = 'url(' + images[this.nextIndex] + ')';
         next.style.backgroundImage = 'url(' + images[this.nextIndex] + ')';
     }
+
     updateIndex() {
         this.currentIndex = this.nextIndex;
         if (this.nextIndex === this.images.length - 1) {
@@ -81,11 +83,16 @@ class OpacitySlider {
             this.nextIndex++;
         }
     }
+
     changeImage() {
         next.style.backgroundImage = 'url(' + images[this.nextIndex] + ')';
     }
 
 }
+
+const next = document.getElementById('slide_next');
+const current = document.getElementById('slide_current');
+const images = ['img1.jpg', 'img2.jpg', 'img3.jpg'];
 
 const slider = new OpacitySlider(next, current, images);
 slider.startSlider();
