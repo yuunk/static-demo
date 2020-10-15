@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML+CSS</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    body {
+      background-color: #333;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0 auto;
+      padding: 0;
+      width: 364px;
+    }
+
+    li {
+      animation: load 1s infinite alternate;
+      background-color: #090;
+      color: #FFF;
+      float: left;
+      font-family: "Arial Black";
+      font-size: 20px;
+      height: 50px;
+      line-height: 50px;
+      margin: 80px 1px;
+      text-align: center;
+      width: 50px;
+    }
+
+    li:nth-child(1) {
+      animation-delay: 0;
+    }
+
+    li:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    li:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    li:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    li:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+
+    li:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+
+    li:nth-child(7) {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes load {
+      0% {
+        background-color: #090;
+      }
+
+      60% {
+        background-color: #090;
+      }
+
+      100% {
+        background-color: #6C6;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>L</li>
+    <li>O</li>
+    <li>A</li>
+    <li>D</li>
+    <li>I</li>
+    <li>N</li>
+    <li>G</li>
+  </ul>
+</body>
+
+</html>
